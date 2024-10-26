@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>use.liriz - Acessórios Artesanais</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;600&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #d4a5a5;
+            --secondary-color: #9e7676;
+            --accent-color: #f9e5e5;
+            --text-color: #3c2a2a;
+            --light-text: #ffffff;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #fff;
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
+        }
+
+        .navbar {
+            position: fixed;
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0.95);
+            padding: 1rem 2rem;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            color: var(--secondary-color);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: var(--text-color);
+            text-decoration: none;
+            font-weight: 300;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('img/background.jpg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--light-text);
+            padding: 0 2rem;
+        }
+
+        .hero-content {
+            max-width: 800px;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            letter-spacing: 2px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            font-weight: 300;
+        }
+
+        .cta-button {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 1rem 3rem;
+            border-radius: 2px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            display: inline-block;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .cta-button:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-2px);
+        }
+
+        .features {
+            padding: 8rem 2rem;
+            background-color: #fff;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 4rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .feature-card {
+            text-align: center;
+        }
+
+        .feature-card img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            margin-bottom: 2rem;
+        }
+
+        .feature-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: var(--secondary-color);
+        }
+
+        .parallax-section {
+            height: 60vh;
+            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('img/img1.jpg');
+            background-attachment: fixed;
+            background-position: center;
+            background-size: cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+        }
+
+        .collection {
+            padding: 8rem 2rem;
+            background-color: var(--accent-color);
+        }
+
+        .collection h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 4rem;
+            color: var(--secondary-color);
+        }
+
+        .collection-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .collection-item {
+            position: relative;
+            overflow: hidden;
+            aspect-ratio: 1;
+        }
+
+        .collection-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+
+        .collection-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .instagram-section {
+            padding: 4rem 2rem;
+            text-align: center;
+            background-color: #fff;
+        }
+
+        .instagram-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            max-width: 1200px;
+            margin: 2rem auto;
+        }
+
+        .instagram-item {
+            aspect-ratio: 1;
+            overflow: hidden;
+        }
+
+        .instagram-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+
+        .instagram-item:hover img {
+            transform: scale(1.1);
+        }
+
+        footer {
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .social-links {
+            margin-bottom: 2rem;
+        }
+
+        .social-links a {
+            color: white;
+            margin: 0 1rem;
+            font-size: 1.5rem;
+            text-decoration: none;
+            transition: opacity 0.3s;
+        }
+
+        .social-links a:hover {
+            opacity: 0.8;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <a href="#" class="logo">use.liriz</a>
+        <div class="nav-links">
+            <a href="#colecao">Coleção</a>
+            <a href="#sobre">Sobre</a>
+            <a href="#contato">Contato</a>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>use.liriz</h1>
+            <p>Site do meu amor todinho. Te amo princesaaaaaa!!!!!</p>
+            <a href="#colecao" class="cta-button">Conheça nossa coleção</a>
+        </div>
+    </section>
+
+    <section class="features">
+        <div class="features-grid">
+            <div class="feature-card">
+                <img src="img/img3.jpg" alt="Estilo Praiano">
+                <h3>Estilo Praiano</h3>
+                <p>Acessórios perfeitos para seus dias de verão</p>
+            </div>
+            <div class="feature-card">
+                <img src="img/img1.jpg" alt="Elegância">
+                <h3>Elegância</h3>
+                <p>Peças delicadas para momentos especiais</p>
+            </div>
+            <div class="feature-card">
+                <img src="img/img2.jpg" alt="Artesanal">
+                <h3>Artesanal</h3>
+                <p>Cada peça é única e feita com amor</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="parallax-section">
+        <div>
+            <h2 style="font-size: 3rem; margin-bottom: 1rem;">Verão 2024</h2>
+            <p style="font-size: 1.2rem;">Nova coleção inspirada na beleza natural do verão brasileiro</p>
+        </div>
+    </section>
+
+    <section class="collection" id="colecao">
+        <h2>Nossa Coleção</h2>
+        <div class="collection-grid">
+            <div class="collection-item">
+                <img src="img/img11.jpg" alt="Produto 1">
+            </div>
+            <div class="collection-item">
+                <img src="img/img5.jpg" alt="Produto 2">
+            </div>
+            <div class="collection-item">
+                <img src="img/img6.jpg" alt="Produto 3">
+            </div>
+            <div class="collection-item">
+                <img src="img/img7.jpg" alt="Produto 4">
+            </div>
+            <div class="collection-item">
+                <img src="img/img8.jpg" alt="Produto 5">
+            </div>
+            <div class="collection-item">
+                <img src="img/img9.jpg" alt="Produto 6">
+            </div>
+            <div class="collection-item">
+                <img src="img/img10.jpg" alt="Produto 7">
+            </div>
+            <div class="collection-item">
+                <img src="img/img11.jpg" alt="Produto 8">
+            </div>
+        </div>
+    </section>
+
+    <section class="instagram-section">
+        <h2 style="font-family: 'Playfair Display', serif; color: var(--secondary-color); margin-bottom: 1rem;">
+            @use.liriz
+        </h2>
+        <p style="margin-bottom: 2rem;">Siga-nos no Instagram para inspirações diárias</p>
+        <div class="instagram-grid">
+            <div class="instagram-item">
+                <img src="img/img12.jpg" alt="Instagram 1">
+            </div>
+            <div class="instagram-item">
+                <img src="img/img13.jpg" alt="Instagram 2">
+            </div>
+            <div class="instagram-item">
+                <img src="img/img14.jpg" alt="Instagram 3">
+            </div>
+            <div class="instagram-item">
+                <img src="img/img15.jpg" alt="Instagram 4">
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="social-links">
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-whatsapp"></i></a>
+            <a href="#"><i class="fab fa-tiktok"></i></a>
+        </div>
+        <p>&copy; 2024 use.liriz - Todos os direitos reservados</p>
+    </footer>
+</body>
+</html>
